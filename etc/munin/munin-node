@@ -1,0 +1,23 @@
+[diskstats]
+user munin
+
+[iostat_ios]
+user munin
+
+[mysql*]
+env.mysqladmin /usr/bin/mysqladmin
+env.mysqlopts -u root -pmysq1Passw0rd -h 127.0.0.1 --port=3306
+env.mysqlconnection DBI:mysql:mysql;host=127.0.0.1;port=3306
+env.mysqluser root
+env.mysqlpassword mysq1Passw0rd
+
+[memcached*]
+env.host 127.0.0.1
+env.port 11211
+env.timescale 3
+
+[fluentd*]
+user munin
+env.host localhost
+env.port 24220
+env.package td-agent
