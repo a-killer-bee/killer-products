@@ -4,7 +4,7 @@
 # processname: inotifywait
 #############################################################
 # watch dir
-NOTIFYPATH=/home/sftp/product
+NOTIFYPATH=/home/sftptest/product
 
 # buffer time
 TIMEOUT=5
@@ -28,9 +28,7 @@ echo -n $"inotifywait started: "
   done
   if [ -n "$messages" ]; then
     #action
-    /usr/local/pssh/bin/prsync -x --delete -h /root/pssh/nodelist/web -a /home/sftp/product /home/sftp/ > /dev/null 2>&1
-    #echo $messages | sed 's/@RET@/\n/g' | \
-    #/usr/bin/Mail -s "${TITLE} `hostname` ${NOTIFYPATH}" $MAILTO
+    /usr/local/pssh/bin/prsync -x --delete -h /root/pssh/nodelist/web -a /home/sftptest/product /home/sftptest/ > /dev/null 2>&1
   fi
 done &
 RETVAL=$?
